@@ -101,6 +101,26 @@ void display()
     }        
 }
 
+node* reverse(node *top_node)
+{
+    node *previous = NULL;
+    node *currentnode = top_node;
+    node *nextnode = NULL;
+    if(ISEMPTY)
+        cout << "List is empty." << endl;
+    else
+    {
+        while (currentnode != NULL)
+        {
+            nextnode = currentnode->next_node;
+            currentnode->next_node = previous;
+            previous = currentnode;
+            currentnode = nextnode;
+        }
+    }
+    return previous;
+}
+
 void list_ops(list_op op)
 {
     switch(op)
@@ -141,6 +161,15 @@ void list_ops(list_op op)
             {
                 cout << "Displaying list." << endl;
                 display();
+                break;
+            }
+        case list_op::reverse:
+            {
+                cout << "Reversing list." << endl;
+                top_node = reverse(top_node);
+                cout << "main logic debug: " << endl;
+                display();
+                cout << "main logic debug end." << endl;
                 break;
             }
         default:

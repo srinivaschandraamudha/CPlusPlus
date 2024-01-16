@@ -10,6 +10,7 @@ int main()
         cout << "Delete node, Enter 2." << endl;
         cout << "Find node, Enter 3." << endl;
         cout << "Display nodes, Enter 4." << endl;
+        cout << "Reverse list, Enter 5." << endl;
         cout << "Exit, Enter 0." << endl;
         cin >> choice;
         list_ops(static_cast<list_op>(choice));

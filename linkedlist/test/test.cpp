@@ -43,6 +43,26 @@ void test_find(int input)
         cout << "FAILED:Testing search list." << endl;
 }
 
+void test_reverse()
+{
+    cout << "Test reversing list." << endl;
+    for (int input = 1; input < 6; input++)
+        insert_node((create(input)));
+    top_node = reverse(top_node);
+    node* target_node = NULL;
+    for (int input = 5; input > 0; input--){
+        target_node = find_node(input);
+        if(target_node && (input == target_node->get_data()))
+            cout << "Data match" << endl;
+        else{
+            cout << "Data mismatch with input = " << input << " and target data = " << target_node->get_data() << endl;
+            cout << "FAILED: Test reversing list." << endl;
+            return;
+        }
+    }
+    cout << "PASSED: Test reversing list." << endl;
+}
+
 int main()
 {
     cout << "Test started" << endl;
@@ -52,5 +72,6 @@ int main()
     test_display();
     test_find(input_data);
     test_delete(position, input_data);
+    test_reverse();
     cout << "Test end" << endl;
 }

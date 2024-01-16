@@ -1,3 +1,4 @@
+rm -rf build
 cmake -E make_directory build
 cd build
 cmake ..
